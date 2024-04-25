@@ -1,0 +1,37 @@
+body {
+	background-color: black;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+	text-align: center;
+	color: white;
+	font-size: 40px;
+	margin-top: 50px;
+}
+
+.cake-container {
+	width: 100%;
+	overflow: hidden;
+	margin-top: 50px;
+}
+
+.cake-scroll {
+	display: flex;
+	animation: scroll 10s infinite linear;
+}
+
+.cake-scroll img {
+	width: 20%;
+	height: auto;
+	margin-right: 10px;
+}
+
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
