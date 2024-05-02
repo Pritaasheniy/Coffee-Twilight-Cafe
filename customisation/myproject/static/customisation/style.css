@@ -286,29 +286,29 @@ body {
 }
 
 
-.expresso .box-container {
+.beans .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
 }
 
-.expresso .box-container .box {
+.beans .box-container .box {
     padding: 5rem;
     text-align: center;
     border: var(--border); /* Make sure --border is defined elsewhere */
 }
 
-.expresso .box-container .box img {
+.beans .box-container .box img {
     height: 10rem;
 }
 
-.expresso .box-container .box h1 {
+.beans .box-container .box h1 {
     color: #fff;
     font-size: 2rem;
     padding: 1rem 0;
 }
 
-.expresso .box-container .box:hover {
+.beans .box-container .box:hover {
     background: rgb(249, 203, 168);
 }
 
