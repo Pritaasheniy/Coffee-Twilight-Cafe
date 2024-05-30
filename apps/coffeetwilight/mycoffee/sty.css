@@ -1,0 +1,185 @@
+.drink .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    gap:1.5rem;
+}
+
+.drink .box-container .box{
+    padding:5rem;
+    text-align: center;
+    border:var(--border);
+}
+
+.drink .box-container .box-img{
+    height: 10rem;
+}
+
+.drink .box-container .box h1{
+    color:#fff;
+    font-size: 2rem;
+    padding:1rem.0;
+}
+
+.drink .box-container .box:hover{
+    background:rgb(249, 203, 168);
+}
+
+.size .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    gap:1.5rem;
+}
+
+.size .box-container .box{
+    padding:5rem;
+    text-align: center;
+    border:var(--border);
+}
+
+.sixe .box-container .box-img{
+    height: 10rem;
+}
+
+.size .box-container .box h1{
+    color:#fff;
+    font-size: 2rem;
+    padding:1rem.0;
+}
+
+.size .box-container .box:hover{
+    background:rgb(249, 203, 168);
+}
+
+.temperature .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.temperature .box {
+    padding: 5rem;
+    text-align: center;
+    border: var(--border);
+}
+
+.temperature .box img {
+    height: 10rem;
+}
+
+.temperature .box h1 {
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.temperature .box:hover {
+    background: rgb(249, 203, 168);
+}
+
+
+.beans .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.beans .box-container .box {
+    padding: 5rem;
+    text-align: center;
+    border: var(--border); /* Make sure --border is defined elsewhere */
+}
+
+.beans .box-container .box img {
+    height: 10rem;
+}
+
+.beans .box-container .box h1 {
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.beans .box-container .box:hover {
+    background: rgb(249, 203, 168);
+}
+
+
+.milk .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.milk .box-container .box {
+    padding: 5rem;
+    text-align: center;
+    border: var(--border);
+}
+
+.milk .box-container .box img {
+    height: 10rem;
+}
+
+.milk .box-container .box h1 {
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.milk .box-container .box:hover {
+    background: rgb(249, 203, 168);
+}
+
+
+.blending .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.blending .box-container .box {
+    padding: 5rem;
+    text-align: center;
+    border: var(--border);
+}
+
+.blending .box-container .box img {
+    height: 10rem;
+}
+
+.blending .box-container .box h1 {
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.blending .box-container .box:hover {
+    background: rgb(249, 203, 168);
+}
+
+
+.topping .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.topping .box-container .box {
+    padding: 5rem;
+    text-align: center;
+    border: var(--border);
+}
+
+.topping .box-container .box img {
+    height: 10rem;
+}
+
+.topping .box-container .box h1 {
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.topping .box-container .box:hover {
+    background: rgb(249, 203, 168);
+}
