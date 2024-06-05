@@ -127,8 +127,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-<<<<<<< HEAD
-=======
 mail = os.environ.get("MAIL")
 mail_pass = os.environ.get("MAIL_PASS")
 
@@ -141,4 +139,3 @@ EMAIL_HOST_USER = mail
 EMAIL_HOST_PASSWORD = mail_pass
 DEFAULT_FROM_EMAIL = mail
 EMAIL_SUBJECT_PREFIX = ' [mycoffee] '
->>>>>>> ffd45ab5f6c38b70c3c4c6ec9ed5419b9f7ba2f6
