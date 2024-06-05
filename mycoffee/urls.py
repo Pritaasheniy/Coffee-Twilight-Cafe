@@ -2,6 +2,7 @@ from django.urls import path
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
+from .views import home
 
 
 urlpatterns = [
@@ -27,6 +28,9 @@ urlpatterns = [
    
     path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name="cafe/password_reset_complete.html"),
          name="reset_password_complete"),
+
+         
+    path('', home,name='home'),  
  
 ]
 
