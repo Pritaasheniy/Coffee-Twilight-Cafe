@@ -122,141 +122,88 @@ document.addEventListener('DOMContentLoaded', function() {
         displaycart();
     }
 
-    const root = document.getElementById('root');
-    root.innerHTML = `
-        <div class='product-category'>
-            <h2>Coffee Types</h2>
-            ${product.coffeeTypes.map((item, index) => {
-                const { image, title, price } = item;
-                return `
-                    <div class='box'>
-                        <div class='img-box'>
-                            <img class='images' src='${image}'></img>
-                        </div>
-                        <div class='bottom'>
-                            <p>${title}</p>
-                            <h2>$ ${price}.00</h2>
-                            <button class="add-to-cart-btn" data-index="${index}" data-type="coffeeTypes">Add to cart</button>
-                        </div>
-                    </div>`;
-            }).join('')}
-        </div>
-        <div class='product-category'>
-            <h2>Cup Sizes</h2>
-            ${product.cupSizes.map((item, index) => {
-                const { image, title, price } = item;
-                return `
-                    <div class='box'>
-                        <div class='img-box'>
-                            <img class='images' src='${image}'></img>
-                        </div>
-                        <div class='bottom'>
-                            <p>${title}</p>
-                            <h2>$ ${price}.00</h2>
-                            <button class="add-to-cart-btn" data-index="${index}" data-type="cupSizes">Add to cart</button>
-                        </div>
-                    </div>`;
-            }).join('')}
-        </div>
-        <div class='product-category'>
-            <h2>Temperatures</h2>
-            ${product.temperatures.map((item, index) => {
-                const { image, title, price } = item;
-                return `
-                    <div class='box'>
-                        <div class='img-box'>
-                            <img class='images' src='${image}'></img>
-                        </div>
-                        <div class='bottom'>
-                            <p>${title}</p>
-                            <h2>$ ${price}.00</h2>
-                            <button class="add-to-cart-btn" data-index="${index}" data-type="temperatures">Add to cart</button>
-                        </div>
-                    </div>`;
-            }).join('')}
-        </div>
-        <div class='product-category'>
-            <h2>Coffee Beans</h2>
-            ${product.coffeeBeans.map((item, index) => {
-                const { image, title, price } = item;
-                return `
-                    <div class='box'>
-                        <div class='img-box'>
-                            <img class='images' src='${image}'></img>
-                        </div>
-                        <div class='bottom'>
-                            <p>${title}</p>
-                            <h2>$ ${price}.00</h2>
-                            <button class="add-to-cart-btn" data-index="${index}" data-type="coffeeBeans">Add to cart</button>
-                        </div>
-                    </div>`;
-            }).join('')}
-        </div>
-        <div class='product-category'>
-            <h2>Milk Types</h2>
-            ${product.milkTypes.map((item, index) => {
-                const { image, title, price } = item;
-                return `
-                    <div class='box'>
-                        <div class='img-box'>
-                            <img class='images' src='${image}'></img>
-                        </div>
-                        <div class='bottom'>
-                            <p>${title}</p>
-                            <h2>$ ${price}.00</h2>
-                            <button class="add-to-cart-btn" data-index="${index}" data-type="milkTypes">Add to cart</button>
-                        </div>
-                    </div>`;
-            }).join('')}
-        </div>
-        <div class='product-category'>
-            <h2>Blending Options</h2>
-            ${product.blendingOptions.map((item, index) => {
-                const { image, title, price } = item;
-                return `
-                    <div class='box'>
-                        <div class='img-box'>
-                            <img class='images' src='${image}'></img>
-                        </div>
-                        <div class='bottom'>
-                            <p>${title}</p>
-                            <h2>$ ${price}.00</h2>
-                            <button class="add-to-cart-btn" data-index="${index}" data-type="blendingOptions">Add to cart</button>
-                        </div>
-                    </div>`;
-            }).join('')}
-        </div>
-        <div class='product-category'>
-            <h2>Toppings</h2>
-            ${product.toppings.map((item, index) => {
-                const { image, title, price } = item;
-                return `
-                    <div class='box'>
-                        <div class='img-box'>
-                            <img class='images' src='${image}'></img>
-                        </div>
-                        <div class='bottom'>
-                            <p>${title}</p>
-                            <h2>$ ${price}.00</h2>
-                            <button class="add-to-cart-btn" data-index="${index}" data-type="toppings">Add to cart</button>
-                        </div>
-                    </div>`;
-            }).join('')}
-        </div>
-    `;
+    function renderProductCategory(category, categoryName) {
+        return `
+            <div class='product-category'>
+                <h2>${categoryName}</h2>
+                ${category.map((item, index) => {
+                    const { image, title, price } = item;
+                    return `
+                        <div class='box'>
+                            <div class='img-box'>
+                                <img class='images' src='${image}'></img>
+                            </div>
+                            <div class='bottom'>
+                                <p>${title}</p>
+                                <h2>$ ${price}.00</h2>
+                                <button class="add-to-cart-btn" data-index="${index}" data-type="${categoryName.toLowerCase().replace(/ /g, '')}">Add to cart</button>
+                            </div>
+                        </div>`;
+                }).join('')}
+            </div>
+        `;
+    }
 
-    // Event listener for Add to cart buttons
-    root.querySelectorAll('.add-to-cart-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const index = parseInt(this.getAttribute('data-index'));
-            const type = this.getAttribute('data-type');
-            addtocart(index, type);
+    function renderProducts(products) {
+        const root = document.getElementById('root');
+        root.innerHTML = '';
+        products.forEach(item => {
+            const { image, title, price, type } = item;
+            root.innerHTML += `
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src='${image}'></img>
+                </div>
+                <div class='bottom'>
+                    <p>${title}</p>
+                    <h2>$ ${price}.00</h2>
+                    <button class="add-to-cart-btn" data-index="${item.id}" data-type="${type}">Add to cart</button>
+                </div>
+            </div>`; 
         });
+    }
+
+    function filterProducts(searchTerm) {
+        const filteredProducts = [];
+        Object.keys(product).forEach(key => {
+            product[key].forEach(item => {
+                if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    filteredProducts.push({ ...item, type: key });
+                }
+            });
+        });
+        renderProducts(filteredProducts);
+        addEventListeners();
+    }
+
+    function addEventListeners() {
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                const type = this.getAttribute('data-type');
+                addtocart(index, type);
+            });
+        });
+    }
+
+    document.getElementById('search-box').addEventListener('input', function() {
+        filterProducts(this.value);
     });
 
-    // Event listener for Add button
+    const root = document.getElementById('root');
+    root.innerHTML = `
+        ${renderProductCategory(product.coffeeTypes, 'Coffee Types')}
+        ${renderProductCategory(product.cupSizes, 'Cup Sizes')}
+        ${renderProductCategory(product.temperatures, 'Temperatures')}
+        ${renderProductCategory(product.coffeeBeans, 'Coffee Beans')}
+        ${renderProductCategory(product.milkTypes, 'Milk Types')}
+        ${renderProductCategory(product.blendingOptions, 'Blending Options')}
+        ${renderProductCategory(product.toppings, 'Toppings')}
+    `;
+
+    addEventListeners();
+
     document.getElementById('addButton').addEventListener('click', finalizeCart);
 
-    // Display initial cart
     displaycart();
 });
