@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style4.css' %}">
+    <style>
+        .product-category { margin-bottom: 20px; }
+        .box { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+        .img-box { text-align: center; }
+        .img-box img { max-width: 100%; height: auto; }
+        .bottom { text-align: center; }
+        .cart-item { display: flex; align-items: center; justify-content: space-between; }
+        .cart-item img { max-width: 50px; height: auto; }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h1>Welcome to Our Coffee Shop</h1>
+        <div class='product-category'>
+            <h2>Coffee Types</h2>
+            {% for item in product.coffeeTypes %}
+                <div class='box'>
+                    <div class='img-box'>
+                        <img class='images' src='{{ item.image }}'></img>
+                    </div>
+                    <div class='bottom'>
+                        <p>{{ item.title }}</p>
+                        <h2>$ {{ item.price }}.00</h2>
+                        <button class="add-to-cart-btn" data-index="{{ forloop.counter0 }}" data-type="coffeeTypes">Add to cart</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- Repeat for other categories (cupSizes, temperatures, etc.) -->
+        <div class='product-category'>
+            <h2>Cup Sizes</h2>
+            {% for item in product.cupSizes %}
+                <div class='box'>
+                    <div class='img-box'>
+                        <img class='images' src='{{ item.image }}'></img>
+                    </div>
+                    <div class='bottom'>
+                        <p>{{ item.title }}</p>
+                        <h2>$ {{ item.price }}.00</h2>
+                        <button class="add-to-cart-btn" data-index="{{ forloop.counter0 }}" data-type="cupSizes">Add to cart</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+        <div class='product-category'>
+            <h2>Temperature</h2>
+            {% for item in product.temperature %}
+                <div class='box'>
+                    <div class='img-box'>
+                        <img class='images' src='{{ item.image }}'></img>
+                    </div>
+                    <div class='bottom'>
+                        <p>{{ item.title }}</p>
+                        <h2>$ {{ item.price }}.00</h2>
+                        <button class="add-to-cart-btn" data-index="{{ forloop.counter0 }}" data-type="temperature">Add to cart</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class='product-category'>
+            <h2>Beans Options</h2>
+            {% for item in product.beansOptions%}
+                <div class='box'>
+                    <div class='img-box'>
+                        <img class='images' src='{{ item.image }}'></img>
+                    </div>
+                    <div class='bottom'>
+                        <p>{{ item.title }}</p>
+                        <h2>$ {{ item.price }}</h2>
+                        <button class="add-to-cart-btn" data-index="{{ forloop.counter0 }}" data-type="beansOptions">Add to cart</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class='product-category'>
+            <h2>Milk Types</h2>
+            {% for item in product.milkTypes %}
+                <div class='box'>
+                    <div class='img-box'>
+                        <img class='images' src='{{ item.image }}'></img>
+                    </div>
+                    <div class='bottom'>
+                        <p>{{ item.title }}</p>
+                        <h2>$ {{ item.price }}.00</h2>
+                        <button class="add-to-cart-btn" data-index="{{ forloop.counter0 }}" data-type="milkTypes">Add to cart</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class='product-category'>
+            <h2>Blending Options</h2>
+            {% for item in product.blendingOptions %}
+                <div class='box'>
+                    <div class='img-box'>
+                        <img class='images' src='{{ item.image }}'></img>
+                    </div>
+                    <div class='bottom'>
+                        <p>{{ item.title }}</p>
+                        <h2>$ {{ item.price }}.00</h2>
+                        <button class="add-to-cart-btn" data-index="{{ forloop.counter0 }}" data-type="blendingOptions">Add to cart</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class='product-category'>
+            <h2>Toppings Options</h2>
+            {% for item in product.toppingsOptions %}
+                <div class='box'>
+                    <div class='img-box'>
+                        <img class='images' src='{{ item.image }}'></img>
+                    </div>
+                    <div class='bottom'>
+                        <p>{{ item.title }}</p>
+                        <h2>$ {{ item.price }}</h2>
+                        <button class="add-to-cart-btn" data-index="{{ forloop.counter0 }}" data-type="toppingsOptions">Add to cart</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- Add other product categories in the same way -->
+        <div id="cartItem">Your cart is empty</div>
+        <div id="total">$0.00</div>
+        <button id="addButton">Add to cart</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const product = {{ product|safe }};
+            let cart = [];
+            let finalizedCart = [];
+
+            function addtocart(index, type) {
+                const existingItemIndex = cart.findIndex(item => item.category === type);
+                if (existingItemIndex !== -1) {
+                    alert(`You can only add one item from the ${type} category to the cart.`);
+                } else {
+                    cart.push({ ...product[type][index], category: type });
+                    displaycart();
+                }
+            }
+
+            function delElement(index) {
+                cart.splice(index, 1);
+                displaycart();
+            }
+
+            function displaycart() {
+                let j = 0, total = 0;
+                document.getElementById("cartItem").innerHTML = cart.length === 0 ? "Your cart is empty" : cart.map((item, index) => {
+                    total += item.price;
+                    return `<div class='cart-item'>
+                        <div class='row-img'>
+                            <img class='rowimg' src=${item.image}>
+                        </div>
+                        <p style='font-size:12px;'>${item.title}</p>
+                        <h2 style='font-size:15px;'>$ ${item.price}.00</h2>
+                        <i class='fa fa-trash-o' onclick='delElement(${index})'></i>
+                    </div>`;
+                }).join('');
+                document.getElementById("total").innerHTML = `$ ${total}.00`;
+                finalizedCart = cart;
+            }
+
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = this.getAttribute('data-index');
+                    const type = this.getAttribute('data-type');
+                    addtocart(index, type);
+                });
+            });
+
+            document.getElementById('addButton').addEventListener('click', function() {
+                fetch('/api/save_data/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify(finalizedCart)
+                }).then(response => response.json()).then(data => {
+                    alert(data.message);
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
