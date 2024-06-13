@@ -1,6 +1,8 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
+from .views import index_view
+
 
 
 
@@ -29,11 +31,12 @@ urlpatterns = [
      path('finalized_carts/', views.finalized_carts, name='finalized_carts'),
     
 
-     path('', views.review_list, name='review_list'),
+     path('accounts/profile/review/', views.review_list, name='review_list'),
      path('add/', views.add_review, name='add_review'),
-   
-]
 
+     path('accounts/profile/index/', index_view, name='index'),
+
+]
 
 
 

@@ -106,7 +106,8 @@ def my_login(request):
 def dashboard(request):
    return render(request, 'registration/dashboard.html')
 
-
+def index_view(request):
+    return render(request, 'index.html')
 
 # COFFEE PAGE WITH PRODUCT DATA
 def customise(request):
@@ -195,7 +196,7 @@ def finalized_carts(request):
 
 def review_list(request):
     reviews = Review.objects.all()
-    return render(request, 'reviews/review_list.html', {'reviews': reviews})
+    return render(request, 'review/review_list.html', {'reviews': reviews})
 
 def add_review(request):
     if request.method == 'POST':
@@ -205,7 +206,7 @@ def add_review(request):
             return redirect('review_list')
     else:
         form = ReviewForm()
-    return render(request, 'reviews/add_review.html', {'form': form})
+    return render(request, 'review/add_review.html', {'form': form})
 
 
 
