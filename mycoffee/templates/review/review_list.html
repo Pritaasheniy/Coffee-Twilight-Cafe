@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="review" id="review">
+    <h1 class="heading">Customer's <span>Review</span></h1>
+    <div class="box-container">
+        {% for review in reviews %}
+        <div class="box">
+            <h3>{{ review.username }}</h3>
+            <div class="stars">
+                {% for i in "12345" %}
+                <span class="star">
+                    {% if review.rating|add:0 >= i|add:"0"|add:0 %}
+                        <i class="fas fa-star"></i>
+                    {% else %}
+                        <i class="far fa-star"></i>
+                    {% endif %}
+                </span>
+                {% endfor %}
+            </div>
+            <p>{{ review.comment }}</p>
+            <div class="content">
+                <h4>Ordered item: {{ review.ordered_item }}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
