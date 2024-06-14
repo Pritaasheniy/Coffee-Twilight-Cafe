@@ -1,0 +1,131 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    color: gold;
+    margin-top: 50px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 60px;
+}
+
+.product-category {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: gold;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.img-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.bottom {
+    margin-top: 10px;
+}
+
+.bottom p {
+    font-size: 16px ;
+    color: black;
+    margin: 0;
+}
+
+.bottom h2 {
+    font-size: 20px;
+    color: maroon;
+    margin: 10px 0;
+}
+
+.add-to-cart-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: grey;
+}
+
+#cartItem {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: white;
+}
+
+#total {
+    text-align: center;
+    font-size: 22px;
+    color: maroon;
+    margin-top: 10px;
+}
+
+#addButton {
+    display: block;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    transition: background-color 0.3s;
+}
+
+#addButton:hover {
+    background-color: grey;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-item img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.cart-item p {
+    flex: 1;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.cart-item h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.fa-trash-o {
+    color: #e74c3c;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.fa-trash-o:hover {
+    color: #c0392b;
+}

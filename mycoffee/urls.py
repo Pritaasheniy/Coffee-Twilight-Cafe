@@ -29,7 +29,6 @@ urlpatterns = [
      path('accounts/profile/customise/', views.customise, name="customise"),
      path('api/save_data/', views.save_data, name='save_data'),
      path('finalized_carts/', views.finalized_carts, name='finalized_carts'),
-    
 
      path('accounts/profile/review/', views.review_list, name='review_list'),
      path('add/', views.add_review, name='add_review'),
