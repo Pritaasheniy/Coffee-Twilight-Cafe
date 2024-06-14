@@ -4,6 +4,7 @@ from django import forms
 from django.forms.widgets import PasswordInput, TextInput
 from .models import Review
 
+
 class CreateUserForm(UserCreationForm):
     
     class Meta: 
@@ -31,3 +32,6 @@ class ReviewForm(forms.ModelForm):
                 (5, '⭐⭐⭐⭐⭐')
             ]),
         }   
+
+
+
