@@ -1,5 +1,7 @@
 from django.db import models
 
+
+
 class CartItem(models.Model):
     title = models.CharField(max_length=100)
     image = models.URLField()
@@ -27,7 +29,3 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.username} - {self.ordered_item}"
-
-
-
-
