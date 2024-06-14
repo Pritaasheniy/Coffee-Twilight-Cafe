@@ -7,6 +7,7 @@ from .views import index_view
 
 
 
+
 urlpatterns = [
     
     path('', views.homepage, name=""),
@@ -34,6 +35,9 @@ urlpatterns = [
      path('add/', views.add_review, name='add_review'),
 
      path('accounts/profile/index/', index_view, name='index'),
+
+     path('accounts/profile/addtocart/', views.addtocart, name='addtocart'),
+     
 
 ]
 

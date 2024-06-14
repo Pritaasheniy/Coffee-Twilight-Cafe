@@ -1,6 +1,11 @@
 body {
     display: flex;
     justify-content: space-between;
+    background-color: black;
+    color: white;
+    margin: 0; /* Ensure no default margin */
+    padding: 0; /* Ensure no default padding */
+    height: 100vh; /* Ensure body takes full height */
 }
 
 #root {
