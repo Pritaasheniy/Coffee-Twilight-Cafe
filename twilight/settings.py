@@ -5,11 +5,22 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+# Initialize environment variables
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
-env = environ.Env()
+# Reading .env file
 environ.Env.read_env()
+
+# Use the variables
+DEBUG = env('DEBUG')
+SECRET_KEY = env('SECRET_KEY')
+DATABASES = {
+    'default': env.db(),
+}
+
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
