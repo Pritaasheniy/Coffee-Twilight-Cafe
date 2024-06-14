@@ -11,6 +11,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import CartItem, FinalizedCart
+from .models import Review
+from .forms import ReviewForm
 
 # Authentication
 from django.contrib.auth.models import auth
@@ -104,7 +106,8 @@ def my_login(request):
 def dashboard(request):
    return render(request, 'registration/dashboard.html')
 
-
+def index_view(request):
+    return render(request, 'index.html')
 
 # COFFEE PAGE WITH PRODUCT DATA
 def customise(request):
@@ -189,6 +192,23 @@ def save_data(request):
 def finalized_carts(request):
     carts = FinalizedCart.objects.all()
     return render(request, 'finalized_carts.html', {'carts': carts})
+
+
+def review_list(request):
+    reviews = Review.objects.all()
+    return render(request, 'review/review_list.html', {'reviews': reviews})
+
+def add_review(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('review_list')
+    else:
+        form = ReviewForm()
+    return render(request, 'review/add_review.html', {'form': form})
+
+
 
 
 
