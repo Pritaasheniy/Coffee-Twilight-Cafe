@@ -1,5 +1,5 @@
 <!--about section start-->
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>about us</title>
 
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style5.css' %}">
 </head>
 
 <body>
-    <section class="about us" id="about us">
+    <section class="about" id="about">
         <h1 class="heading"><span>About </span>Us</h1>
         <div class="row">
             <div class="image">
-                <img src="images/coffee.jpg" alt="coffee photo" width="550" height="780">
+                <img src="/mycoffee/static/images/coffee.jpg" alt="coffee photo" width="550" height="780">
             </div>
             <div class="content">
                 <h3>The Coffee Twilight Cafe</h3>
@@ -47,15 +48,15 @@
                 <tbody>
                     <tr>
                         <td>PRITAASHENIY ANANTHAN</td>
-                        <td><img src="images/prita.jpg" alt="prita photo" width="250" height="250"></td>
+                        <td><img src="/mycoffee/static/images/prita.jpg" alt="prita photo" width="250" height="250"></td>
                         <td>JIVAHLOSHINI A/P KAMARAJAN</td>
-                        <td><img src="images/jivah.jpg" alt="jivah photo" width="250" height="250"></td>
+                        <td><img src="/mycoffee/static/images/jivah.jpg" alt="jivah photo" width="250" height="250"></td>
                     </tr>
                     <tr>
                         <td>YAP YEE XUEN</td>
-                        <td><img src="images/yeexuen.jpg" alt="yap photo" width="250" height="250"></td>
+                        <td><img src="/mycoffee/static/images/yeexuen.jpg" alt="yap photo" width="250" height="250"></td>
                         <td>RESHMA A/P KRISHNAMURTHY</td>
-                        <td><img src="images/reshma.jpg" alt="reshma photo" width="250" height="250"></td>
+                        <td><img src="/mycoffee/static/images/reshma.jpg" alt="reshma photo" width="250" height="250"></td>
                     </tr>
                 </tbody>
             </table>

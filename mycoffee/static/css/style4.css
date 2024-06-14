@@ -1,27 +1,14 @@
-.container {
-    display: grid;
-    justify-content: space-between;
-}
-
 #root {
-    width: 60%;
+    width: 30%;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 20px;
 }
 
-.sidebar {
-    width: 40%;
-    border-radius: 5px;
-    background-color: #eee;
-    padding: 15px;
-    text-align: center;
-}
-
 .head {
     background-color: rgb(0, 0, 0);
     border-radius: 3px;
-    height: 40px;
+    height: 20px;
     padding: 10px;
     margin-bottom: 20px;
     color: white;
@@ -38,13 +25,13 @@
 }
 
 .box {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    flex-direction: grid;
     align-items: center;
     justify-content: space-between;
     border: 1px solid goldenrod;
     border-radius: 5px;
-    padding: 15px;
+    padding: 5px;
 }
 
 .img-box {
