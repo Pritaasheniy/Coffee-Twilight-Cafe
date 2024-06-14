@@ -1,0 +1,299 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addtocart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/addtocart.css' %}">
+
+    <style>
+        .product-category { margin-bottom: 20px; }
+        .box { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+        .img-box { text-align: center; }
+        .img-box img { max-width: 90%; height: 40%; }
+        .bottom { text-align: center; }
+        .cart-item { display: flex; align-items: center; justify-content: space-between; }
+        .cart-item img { max-width: 50px; height: auto; }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h1>CAKES</h1>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="{% static 'css/images/cakes/cake1.2.jpg' %}" alt='Carrot Cheese Cake'>
+                </div>
+                <div class='bottom'>
+                    <p>Carrot Cheese Cake (per slice)</p>
+                    <h2>$7.00</h2>
+                    <button class="add-to-cart-btn" data-index="0" data-type="cakeTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="{% static 'css/images/cakes/cake2.2.jpg' %}" alt='Cheesecake'>
+                </div>
+                <div class='bottom'>
+                    <p>Cheesecake (per slice)</p>
+                    <h2>$5.00</h2>
+                    <button class="add-to-cart-btn" data-index="1" data-type="cakeTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="{% static 'css/images/cakes/cake3.2.jpg' %}" alt='Black Forest'>
+                </div>
+                <div class='bottom'>
+                    <p>Black Forest (per slice)</p>
+                    <h2>$7.00</h2>
+                    <button class="add-to-cart-btn" data-index="2" data-type="cakeTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="{% static 'css/images/cakes/cake4.2.jpg' %}" alt='Red Velvet Cake'>
+                </div>
+                <div class='bottom'>
+                    <p>Red Velvet Cake (per slice)</p>
+                    <h2>$7.00</h2>
+                    <button class="add-to-cart-btn" data-index="3" data-type="cakeTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="{% static 'css/images/cakes/cake5.2.jpg' %}" alt='Coffee Cake'>
+                </div>
+                <div class='bottom'>
+                    <p>Coffee Cake (per slice)</p>
+                    <h2>$6.00</h2>
+                    <button class="add-to-cart-btn" data-index="4" data-type="cakeTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+
+        <h1>COOKIES</h1>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="{% static 'css/images/cookies/cookies1.2.jpg' %}" alt='Butter Cookies'>
+                </div>
+                <div class='bottom'>
+                    <p>Butter Cookies (12 piece)</p>
+                    <h2>$10.00</h2>
+                    <button class="add-to-cart-btn" data-index="0" data-type="cookiesTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="{% static 'css/images/cookies/cookies2.2.jpg' %}" alt='White Chocolate Macadamia Nut'>
+                </div>
+                <div class='bottom'>
+                    <p>White Chocolate Macadamia Nut (12 piece)</p>
+                    <h2>$14.00</h2>
+                    <button class="add-to-cart-btn" data-index="1" data-type="cookiesTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="{% static 'css/images/cookies/cookies3.2.jpg' %}" alt='Chocolate Chip Cookies'>
+                </div>
+                <div class='bottom'>
+                    <p>Chocolate Chip Cookies (12 piece)</p>
+                    <h2>$13.00</h2>
+                    <button class="add-to-cart-btn" data-index="2" data-type="cookiesTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="{% static 'css/images/cookies/cookies4.2.jpg' %}" alt='Extra Chocolate Chip Cookies'>
+                </div>
+                <div class='bottom'>
+                    <p>Extra Chocolate Chip Cookies (12 piece)</p>
+                    <h2>$16.00</h2>
+                    <button class="add-to-cart-btn" data-index="3" data-type="cookiesTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src="{% static 'css/images/cookies/cookies5.2.jpg' %}" alt='Brownie Cookies'>
+                </div>
+                <div class='bottom'>
+                    <p>Brownie Cookies (12 piece)</p>
+                    <h2>$6.00</h2>
+                    <button class="add-to-cart-btn" data-index="4" data-type="cookiesTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+
+        <h1>POPCORNS</h1>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src='{% static "css/images/popcorns/popcorn1.2.jpg" %}' alt='Butter Popcorn'>
+                </div>
+                <div class='bottom'>
+                    <p>Butter Popcorn</p>
+                    <h2>$12.00</h2>
+                    <button class="add-to-cart-btn" data-index="0" data-type="popcornTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src='{% static "css/images/popcorns/popcorn2.2.jpg" %}' alt='Caramel Popcorn'>
+                </div>
+                <div class='bottom'>
+                    <p>Caramel Popcorn</p>
+                    <h2>$15.00</h2>
+                    <button class="add-to-cart-btn" data-index="1" data-type="popcornTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src='{% static "css/images/popcorns/popcorn3.2.jpg" %}' alt='Chocolate Popcorn'>
+                </div>
+                <div class='bottom'>
+                    <p>Chocolate Popcorn</p>
+                    <h2>$20.00</h2>
+                    <button class="add-to-cart-btn" data-index="2" data-type="popcornTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src='{% static "css/images/popcorns/popcorn4.2.jpg" %}' alt='Marshmallow Popcorn'>
+                </div>
+                <div class='bottom'>
+                    <p>Marshmallow Popcorn</p>
+                    <h2>$25.00</h2>
+                    <button class="add-to-cart-btn" data-index="3" data-type="popcornTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class='product-category'>
+            <div class='box'>
+                <div class='img-box'>
+                    <img class='images' src='{% static "css/images/popcorns/popcorn5.2.jpg" %}' alt='Maple Syrup Popcorn'>
+                </div>
+                <div class='bottom'>
+                    <p>Maple Syrup Popcorn</p>
+                    <h2>$18.00</h2>
+                    <button class="add-to-cart-btn" data-index="4" data-type="popcornTypes">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div id="cartItem">Your cart is empty</div>
+        <div id="total">$0.00</div>
+        <button id="addButton">Add to cart</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const products = {
+                cakeTypes: [
+                    { name: "Carrot Cheese Cake", price: 7.00, image: "{% static 'css/images/cakes/cake1.2.jpg' %}" },
+                    { name: "Cheesecake", price: 5.00, image: "{% static 'css/images/cakes/cake2.2.jpg' %}" },
+                    { name: "Black Forest", price: 7.00, image: "{% static 'css/images/cakes/cake3.2.jpg' %}" },
+                    { name: "Red Velvet Cake", price: 7.00, image: "{% static 'css/images/cakes/cake4.2.jpg' %}" },
+                    { name: "Coffee Cake", price: 6.00, image: "{% static 'css/images/cakes/cake5.2.jpg' %}" }
+                ],
+                cookiesTypes: [
+                    { name: "Butter Cookies", price: 10.00, image: "{% static 'css/images/cookies/cookies1.2.jpg' %}" },
+                    { name: "White Chocolate Macadamia Nut", price: 14.00, image: "{% static 'css/images/cookies/cookies2.2.jpg' %}" },
+                    { name: "Chocolate Chip Cookies", price: 13.00, image: "{% static 'css/images/cookies/cookies3.2.jpg' %}" },
+                    { name: "Extra Chocolate Chip Cookies", price: 16.00, image: "{% static 'css/images/cookies/cookies4.2.jpg' %}" },
+                    { name: "Brownie Cookies", price: 6.00, image: "{% static 'css/images/cookies/cookies5.2.jpg' %}" }
+                ],
+                popcornTypes: [
+                    { name: "Butter Popcorn", price: 12.00, image: "{% static 'css/images/popcorns/popcorn1.2.jpg' %}" },
+                    { name: "Caramel Popcorn", price: 15.00, image: "{% static 'css/images/popcorns/popcorn2.2.jpg' %}" },
+                    { name: "Chocolate Popcorn", price: 20.00, image: "{% static 'css/images/popcorns/popcorn3.2.jpg' %}" },
+                    { name: "Marshmallow Popcorn", price: 25.00, image: "{% static 'css/images/popcorns/popcorn4.2.jpg' %}" },
+                    { name: "Maple Syrup Popcorn", price: 18.00, image: "{% static 'css/images/popcorns/popcorn5.2.jpg' %}" }
+                ]
+            };
+
+            let cart = [];
+            let finalizedCart = [];
+
+            function addtocart(index, type) {
+                const existingItemIndex = cart.findIndex(item => item.category === type && item.index === index);
+                if (existingItemIndex !== -1) {
+                    cart[existingItemIndex].quantity++;
+                } else {
+                    cart.push({ ...products[type][index], category: type, index: index, quantity: 1 });
+                }
+                displaycart();
+            }
+
+            function delElement(index) {
+                cart.splice(index, 1);
+                displaycart();
+            }
+
+            function displaycart() {
+                let total = 0;
+                document.getElementById("cartItem").innerHTML = cart.length === 0 ? "Your cart is empty" : cart.map((item, index) => {
+                    total += item.price * item.quantity;
+                    return `<div class='cart-item'>
+                        <div class='row-img'>
+                            <img class='rowimg' src='${item.image}' alt='${item.name}'>
+                        </div>
+                        <p style='font-size:12px;'>${item.name} x ${item.quantity}</p>
+                        <h2 style='font-size:15px;'>$${item.price}.00</h2>
+                        <i class='fa fa-trash-o' onclick='delElement(${index})'></i>
+                    </div>`;
+                }).join('');
+                document.getElementById("total").innerHTML = `$${total}.00`;
+                finalizedCart = cart;
+            }
+
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    const type = this.getAttribute('data-type');
+                    addtocart(index, type);
+                });
+            });
+
+            document.getElementById('addButton').addEventListener('click', function() {
+                fetch("{% url 'save_data' %}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify(finalizedCart)
+                }).then(response => response.json()).then(data => {
+                    alert(data.message);
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
